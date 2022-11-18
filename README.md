@@ -5,7 +5,7 @@ Event generator for leading Lambda baryon tagged DIS process, which is useful fo
 
 Using ROOT to execute the codes:
 
->root -l test.cpp
+>root -l -q test.cpp
 
 
 
