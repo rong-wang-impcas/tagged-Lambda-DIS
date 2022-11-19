@@ -284,7 +284,7 @@ void TaggedLambda_DIS::MakeROOTFile(char *filename){
 	//// create the output file and the output TTree
 	cout<<"    Creating the output file: "<<filename<<endl;
 	fout = new TFile(filename,"recreate");
-	tree = new TTree("tree","TaggedDIS - RW");
+	tree = new TTree("tree","TaggedDIS");
 	tree->Branch("xB", &xB, "xB/D");
 	tree->Branch("Q2", &Q2, "Q2/D");
 	tree->Branch("xL", &xL, "xL/D");
@@ -301,17 +301,15 @@ void TaggedLambda_DIS::MakeROOTFile(char *filename){
 	tree->Branch("gen_pi0_ThirdVy", &gen_pi0_ThirdVy, "gen_pi0_ThirdVy/D");
 	tree->Branch("gen_pi0_ThirdVz", &gen_pi0_ThirdVz, "gen_pi0_ThirdVz/D");
 	tree->Branch("d4sigma", &d4sigma, "d4sigma/D");
-	tree->Branch("elec_out", elec_out, 32000, 0);
-	tree->Branch("lambda_out", lambda_out, 32000, 0);
-	tree->Branch("decay_neut", decay_neut, 32000, 0);
-	tree->Branch("decay_pi0", decay_pi0, 32000, 0);
-	tree->Branch("decay_gamma_1", decay_gamma_1, 32000, 0);
-	tree->Branch("decay_gamma_2", decay_gamma_2, 32000, 0);	
-	tree->Branch("decay_neut_smeared", decay_neut_smeared, 32000, 0);
-	tree->Branch("decay_gamma_1_smeared", decay_gamma_1_smeared, 32000, 0);
-	tree->Branch("decay_gamma_2_smeared", decay_gamma_2_smeared, 32000, 0);	
-
-
+	tree->Branch("elec_out", "TLorentzVector", elec_out);
+	tree->Branch("lambda_out", "TLorentzVector", lambda_out);
+	tree->Branch("decay_neut", "TLorentzVector", decay_neut);
+	tree->Branch("decay_pi0", "TLorentzVector", decay_pi0);
+	tree->Branch("decay_gamma_1", "TLorentzVector", decay_gamma_1);
+	tree->Branch("decay_gamma_2", "TLorentzVector", decay_gamma_2);	
+	tree->Branch("decay_neut_smeared", "TLorentzVector", decay_neut_smeared);
+	tree->Branch("decay_gamma_1_smeared", "TLorentzVector", decay_gamma_1_smeared);
+	tree->Branch("decay_gamma_2_smeared", "TLorentzVector", decay_gamma_2_smeared);	
 
 	tree->Branch("xL_smeared", &xL_smeared, "xL_smeared/D");
 	tree->Branch("mpi0_rec", &mpi0_rec, "mpi0_rec/D");
