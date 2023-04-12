@@ -18,8 +18,9 @@ int test(){
 	dis.SetxLmax(0.995);
 	dis.SetxLmin(0.2);
 
-	char filename[50] = "TaggedLambda-DIS-EicC.root";
-	dis.SetOutputFileName(filename); 
+	//char filename[50] = "TaggedLambda-DIS-EicC.root";
+	//TString filename = "TaggedLambda-DIS-EicC.root";
+	dis.SetOutputFileName("TaggedLambda-DIS-EicC.root"); 
 
 	dis.SetElecBeamEnergy(3.5);
 	dis.SetProtBeamEnergy(20);

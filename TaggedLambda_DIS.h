@@ -6,6 +6,7 @@
 #include"TTree.h"
 #include"TLorentzVector.h"
 #include"TVector3.h"
+#include"TString.h"
 
 #include"KineCal.h"
 
@@ -22,6 +23,7 @@ class TaggedLambda_DIS{
 		int Generate(int N);
 
 		void SetOutputFileName(char *filename);
+		void SetOutputFileName(TString filename);
 
 	
 		
