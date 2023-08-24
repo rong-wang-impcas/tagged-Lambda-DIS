@@ -32,6 +32,7 @@ TaggedLambda_DIS::TaggedLambda_DIS(){
 
 
 	sampling_flag = 0;
+	quiet_flag = 0;
 	max_d4sigma = 100;
 
 
@@ -288,7 +289,7 @@ int TaggedLambda_DIS::Generate(int N = 20000000){
 				
 		tree->Fill();
 		i++;
-		if(i%1000==0)cout<<i<<" events"<<endl;
+		if(!quiet_flag) if(i%1000==0) cout<<i<<" events"<<endl;
 	}
 
 
@@ -433,3 +434,4 @@ int TaggedLambda_DIS::SetSamplingMode(int flag){
 	sampling_flag = flag;
 	return sampling_flag;
 }
+int TaggedLambda_DIS::SetQuiet(int flag){quiet_flag = flag; return quiet_flag;}

@@ -28,6 +28,7 @@ int test(){
 	dis.SetBeamCrossAngle(0.05);  //// 50 mrad
 	dis.SetBeamCrossAngle(0);   //// 0 mrad
 
+	//dis.SetQuiet(1);
 	dis.SetSamplingMode(1);
 	dis.Generate(50000);
 
