@@ -29,6 +29,12 @@ TaggedLambda_DIS::TaggedLambda_DIS(){
 	ymax = 0.99;
 	Tmin = 0.01;
 	Tmax = 50;
+
+
+	sampling_flag = 0;
+	max_d4sigma = 100;
+
+
 	//// nucleon mass and electron mass
 	mN = 0.938272;
 	mLambda = 1.115;
@@ -158,6 +164,9 @@ int TaggedLambda_DIS::Generate(int N = 20000000){
 		lambda_out->SetXYZT(Lambdamom*sinLambdatheta*cos(Lambdaphi), Lambdamom*sinLambdatheta*sin(Lambdaphi), Lambdamom*cosLambdatheta, LambdaE);
 
 		d4sigma = d4sigma_dQ2dxBdxLdt_kaon(Q2, xB, xL, t);
+		if(sampling_flag)
+			if(d4sigma < random->Uniform(0,max_d4sigma))continue;
+
 
 /*************************************************************************************/
 		// Lambda decay
@@ -279,6 +288,7 @@ int TaggedLambda_DIS::Generate(int N = 20000000){
 				
 		tree->Fill();
 		i++;
+		if(i%1000==0)cout<<i<<" events"<<endl;
 	}
 
 
@@ -419,4 +429,7 @@ void TaggedLambda_DIS::SetTmax(double max){Tmax = max;}
 void TaggedLambda_DIS::Setymin(double min){ymin = min;}
 void TaggedLambda_DIS::Setymax(double max){ymax = max;}
 
-
+int TaggedLambda_DIS::SetSamplingMode(int flag){
+	sampling_flag = flag;
+	return sampling_flag;
+}

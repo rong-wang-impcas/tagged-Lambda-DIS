@@ -43,6 +43,7 @@ class TaggedLambda_DIS{
 		void SetTmax(double max);
 		void Setymin(double min);
 		void Setymax(double max);
+		int SetSamplingMode(int flag);
 
 		//// set beam energies and crossing angle
 		void SetElecBeamEnergy(double ebeamenergy);		
@@ -52,6 +53,9 @@ class TaggedLambda_DIS{
 
 
 	private:
+		int sampling_flag;
+		double max_d4sigma;
+
 		double me;
 		double mkaon;
 		double mN;

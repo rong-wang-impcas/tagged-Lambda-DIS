@@ -22,12 +22,14 @@ int test(){
 	//TString filename = "TaggedLambda-DIS-EicC.root";
 	dis.SetOutputFileName("TaggedLambda-DIS-EicC.root"); 
 
+
 	dis.SetElecBeamEnergy(3.5);
 	dis.SetProtBeamEnergy(20);
 	dis.SetBeamCrossAngle(0.05);  //// 50 mrad
-	//dis.SetBeamCrossAngle(0);   //// 0 mrad
+	dis.SetBeamCrossAngle(0);   //// 0 mrad
 
-	dis.Generate(20000);
+	dis.SetSamplingMode(1);
+	dis.Generate(50000);
 
 	return 0;
 }
